@@ -1,0 +1,41 @@
+{
+    "expo": {
+        "extra": {
+            "eas": {
+                "projectId": "ca4034d4-9f29-4b8d-9d56-a2350abd41e3"
+            }
+        },
+        "splash": {
+            "image": "./assets/splash.png",
+            "resizeMode": "contain",
+            "backgroundColor": "#ffffff"
+        },
+        "orientation": "portrait",
+        "icon": "./assets/icon.png",
+        "android": {
+            "adaptiveIcon": {
+                "foregroundImage": "./assets/adaptive-icon.png",
+                "backgroundColor": "#ffffff"
+            },
+            "plugins": [
+                [
+                    "expo-notifications",
+                    {
+                        "icon": "./assets/notif.png"
+                    }
+                ],
+                [
+                    "expo-build-properties",
+                    {
+                        "android": {
+                            "usesCleartextTraffic": true
+                        }
+                    }
+                ],
+
+                "expo-secure-store"
+            ],
+            "package": "com.eliruvinga.smartmeterapp"
+        }
+    }
+}
