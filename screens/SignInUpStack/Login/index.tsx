@@ -93,9 +93,11 @@ const LoginScreen = ({ navigation }: navigationProps) => {
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const handleFecthingSuccess = (successDatas: any) => {
-        const OwnerUser: MobileUserDatas = successDatas.user;
+        const OwnerUser: MobileUserDatas = successDatas.DataUser;
+        const TokenUser = successDatas.Token;
+
         // Reset States in App
-        console.log(successDatas);
+        console.log(successDatas.DataUser);
         ResetAllState();
 
         console.log("save localy datas");
@@ -105,12 +107,14 @@ const LoginScreen = ({ navigation }: navigationProps) => {
             lName: OwnerUser.lname,
             useRole: OwnerUser.useRole,
             tel: OwnerUser.tel,
-            AdminId: OwnerUser.AdminId,
-            cover: OwnerUser.cover,
+            AdminId: OwnerUser.AdminId ? OwnerUser.AdminId : "",
+            cover: OwnerUser.cover ? OwnerUser.cover : "",
             isActive: OwnerUser.isActive,
             idUser: OwnerUser._id,
         });
-        Login(successDatas.token);
+
+        console.log("Login ...");
+        Login(TokenUser);
     };
 
     useEffect(() => {
