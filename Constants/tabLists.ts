@@ -1,9 +1,5 @@
 // list and constants tabs in App
-import {
-    ProfileNavigation,
-    SettingsIcons,
-    ValidatesDatasErrors,
-} from "./Types";
+import { ValidatesDatasErrors } from "./Types";
 
 // 2. Login and Register Tabs
 export const LogTabValue = [
@@ -35,7 +31,7 @@ export const RegTabValue = [
         label: "Nom complet",
         id: 0,
         type: "none",
-        placeholder: "cherubin Mahamba",
+        placeholder: "Cherubin Mahamba",
         secure: false,
         checked: true,
         errorType: ValidatesDatasErrors.NAME,
@@ -52,23 +48,13 @@ export const RegTabValue = [
     },
     {
         from: "Register",
-        label: "Mot de passe",
+        label: "Téléphone",
         id: 2,
-        type: "none",
-        placeholder: "**********",
-        secure: true,
+        type: "text",
+        placeholder: "+243 973 668 210",
+        secure: false,
         checked: true,
-        errorType: ValidatesDatasErrors.STRONGPASSWORD,
-    },
-    {
-        from: "Register",
-        label: "Confirmation Mot de passe",
-        id: 3,
-        type: "none",
-        placeholder: "**********",
-        secure: true,
-        checked: true,
-        errorType: ValidatesDatasErrors.CONFIRMPWD,
+        errorType: ValidatesDatasErrors.PHONE,
     },
 ];
 
@@ -115,72 +101,6 @@ export const ResetTabValues = [
         secure: true,
         checked: true,
         errorType: ValidatesDatasErrors.CONFIRMRESETPWD,
-    },
-];
-
-export const SettingItems = [
-    {
-        label: "Mon compte",
-        isRoute: true,
-        icon: SettingsIcons.User,
-        route: ProfileNavigation.PROFILE_ACCOUNT,
-    },
-
-    {
-        label: "Sécurité et connexion",
-        isRoute: true,
-        icon: SettingsIcons.Login,
-        route: ProfileNavigation.PROFILE_SECURITY,
-    },
-
-    {
-        label: "Centre d'aide",
-        isRoute: true,
-        icon: SettingsIcons.Help,
-        route: ProfileNavigation.PROFILE_HELP,
-    },
-    {
-        label: "Politique de confidentialité",
-        isRoute: true,
-        icon: SettingsIcons.Privacy,
-        route: ProfileNavigation.PROFILE_POLICY,
-    },
-];
-
-export const ProfileItems = [
-    {
-        label: "Paramètres",
-        isRoute: true,
-        route: ProfileNavigation.SETTINGS,
-    },
-    {
-        label: "Déconnexion",
-        isRoute: false,
-        route: ProfileNavigation.NONE,
-    },
-];
-
-export const SpaceType = [
-    {
-        label: "Forum Civique",
-        isRoute: true,
-        route: ProfileNavigation.SPACE_FORUM,
-    },
-
-    {
-        label: "Espace débat-Elus Citoyens",
-        isRoute: true,
-        route: ProfileNavigation.SPACE_DEBAT,
-    },
-    {
-        label: "Enquêtes et Sondages",
-        isRoute: true,
-        route: ProfileNavigation.SPACE_SONDAGE,
-    },
-    {
-        label: "Mobilisation Citoyenne",
-        isRoute: false,
-        route: ProfileNavigation.SPACE_MEETING,
     },
 ];
 
