@@ -12,30 +12,25 @@ export const API = atom({
         LAN_LINK: "https://cherubin-restefull-api.onrender.com",
         LINK: "http://192.168.0.220:4002",
         SIGN_IN: "/AppUsers/SignIn",
-        SIGN_UP: "/signup",
 
         REGISTER_VERIFI_CODE: "AppUsers/ActiveAccount/verifyCode",
 
         // Users
         GET_USERS: "/Users",
+        GET_COUNTER: "/Counter",
+        CHANGE_COUNTER_STATE: "/Counter/changeState",
+        DELETE_USER: "/Users/Delete",
+        NEW_APPART: "/Users/NewAppart",
+        NEW_RECHARGE: "/Users/NewPayement",
+        GET_NOTIFICATION: "/Users/Notifications",
+
+        //aPLLICATION USER
         GET_OTP: "/AppUsers/ActiveAccount/getCode",
         UPDATE_USER: "/AppUsers/ActiveAccount/password",
 
         //IMAGES
         UPLOAD_IMAGE: "/AppUsers/UploadImage",
         RESET_PWD: "/reset-password",
-        LOGOUT: "/logout",
-
-        // POSTS
-        POSTS: "/posts",
-        DEBAT_POSTS: "/postsDebate",
-        DEBAT_FILTER: "/debate/filter",
-        DEBATs_POSTS: "/postDebate",
-        LIKES_POSTS: "/posts/like",
-        UNLIKES_POSTS: "/posts/unlike",
-        POLLS: "/polls",
-        VOTES_POLLS: "/polls/vote",
-        MEETINGS: "/meetings",
-        INTEREST: "/interests",
+        LOGOUT: "/Users/logout",
     },
 });

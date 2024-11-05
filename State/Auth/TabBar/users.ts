@@ -22,39 +22,80 @@ export const DatasOfUserLogin = atom({
 });
 
 // Tab Bar State
-export const NavBarState = atom({
+export const AdminNavBarState = atom({
     key: "NavBarState",
     default: [
         {
             Icon: IconesValues.HOME,
-            label: "Accueil",
+            label: "Home",
             BadgeText: false,
-            badgeValue: 0,
-        },
-        {
-            Icon: IconesValues.SEARCH,
-            label: "Recherche",
-            BadgeText: true,
             badgeValue: 0,
         },
 
         {
             Icon: IconesValues.PLUS,
-            label: "New",
+            label: "Créer",
             BadgeText: false,
             badgeValue: 0,
         },
 
         {
             Icon: IconesValues.NOTIFICATION,
-            label: "Notifications",
-            BadgeText: true,
-            badgeValue: 2,
+            label: "Cloche",
+            BadgeText: false,
+            badgeValue: 0,
         },
 
         {
             Icon: IconesValues.PROFILE,
-            label: "Profil",
+            label: "Profile",
+            BadgeText: false,
+            badgeValue: 0,
+        },
+    ],
+});
+
+// Tab Bar State
+export const ClientsNavBarState = atom({
+    key: "ClientsNavBarState",
+    default: [
+        {
+            Icon: IconesValues.HOME,
+            label: "Home",
+            BadgeText: false,
+            badgeValue: 0,
+        },
+
+        {
+            Icon: IconesValues.NOTIFICATION,
+            label: "Cloche",
+            BadgeText: false,
+            badgeValue: 0,
+        },
+
+        {
+            Icon: IconesValues.PROFILE,
+            label: "Profile",
+            BadgeText: false,
+            badgeValue: 0,
+        },
+    ],
+});
+
+// Dealer Bar State
+export const DealerNavBarState = atom({
+    key: "DealerNavBarState",
+    default: [
+        {
+            Icon: IconesValues.HOME,
+            label: "Home",
+            BadgeText: false,
+            badgeValue: 0,
+        },
+
+        {
+            Icon: IconesValues.PROFILE,
+            label: "Profile",
             BadgeText: false,
             badgeValue: 0,
         },

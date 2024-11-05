@@ -1,13 +1,10 @@
 //States of User datas
 import { atom } from "recoil";
 import {
-    AppointmentDatas,
-    CommentDatas,
-    FILTERSPOSTS,
-    PostWithCommentsDatas,
-    UserRole,
+    FILTERACCOUNTS,
+    MobileUserDatas,
+    NotificationsType,
 } from "../../../Constants/Types";
-import useLocalStorage from "../../../hooks/UselocalDatas";
 
 //DefaultPictures
 export const DefaultPictures = atom({
@@ -21,54 +18,16 @@ export const DefaultPictures = atom({
 //Filter datas
 export const HomeFilterSelected = atom({
     key: "HomeFilterSelected",
-    default: FILTERSPOSTS.POSTS,
+    default: FILTERACCOUNTS.ALL,
 });
 
-export const ProfileFilterSelected = atom({
-    key: "ProfileFilterSelected",
-    default:
-        useLocalStorage().getAccountType() == UserRole.CITIZEN
-            ? FILTERSPOSTS.DEBATES
-            : FILTERSPOSTS.POSTS,
+// Client Datas
+export const ClientUsers = atom({
+    key: "ClientUsers",
+    default: [] as MobileUserDatas[],
 });
 
-// Select Datas
-export const PostSelected = atom({
-    key: "PostSelected",
-    default: {} as PostWithCommentsDatas,
-});
-
-export const PostWithoutLikesSelected = atom({
-    key: "PostWithoutLikesSelected",
-    default: {} as PostWithCommentsDatas,
-});
-
-export const CommentSelected = atom({
-    key: "CommentSelected",
-    default: {} as CommentDatas,
-});
-
-//Meeting States
-export const MeetingSelected = atom({
-    key: "MeetingSelected",
-    default: {} as AppointmentDatas,
-});
-
-// Loader Home Pages datas
-export const ForumsLoader = atom({
-    key: "ForumsLoader",
-    default: true,
-});
-
-export const DebatesLoader = atom({
-    key: "DebatesLoader",
-    default: true,
-});
-export const PollsLoader = atom({
-    key: "PollsLoader",
-    default: true,
-});
-export const MeetingLoader = atom({
-    key: "MeetingLoader",
-    default: true,
+export const NotificationsDatas = atom({
+    key: "NotificationsDatas",
+    default: [] as NotificationsType[],
 });

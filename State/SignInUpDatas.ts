@@ -15,8 +15,8 @@ export const RegisterDataStore = atom({
         fName: "",
         lName: "",
         email: "",
-        password: "",
-        confirmPassword: "",
+        tel: "",
+        idCounter: 0,
     },
 });
 
@@ -50,18 +50,6 @@ export const ActiveAccountDatas = atom({
     default: {
         email: "",
         code: "",
-    },
-});
-
-export const OTPFromScreen = atom({
-    key: "FromScreen",
-    default: "Forgot",
-});
-
-export const SuccessMsg = atom({
-    key: "SuccessMsg",
-    default: {
-        message: "",
     },
 });
 
