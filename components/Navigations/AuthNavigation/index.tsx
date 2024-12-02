@@ -10,6 +10,7 @@ import ClientHome from "../../../screens/AuthStack/HomeClient";
 import NotificationsScreen from "../../../screens/AuthStack/Notification";
 import ProfileScreen from "../../../screens/AuthStack/Profile/Account";
 import NewUserScreen from "../../../screens/AuthStack/NewUser";
+import HistoryPayementScreen from "../../../screens/AuthStack/AuthDelear";
 import NewPayementScreen from "../../../screens/AuthStack/NewPayement";
 
 //LocalStorage user and user define datas
@@ -92,13 +93,16 @@ const DealerTabNavigation = () => {
                 }}
                 tabBar={(props) => DealersNavbar(props)}
                 tabBarPosition="bottom"
-                initialRouteName={Routes.NEW_USER}
+                initialRouteName={Routes.HOME_AUTH}
             >
+                <Tab.Screen
+                    name={Routes.HOME_AUTH}
+                    component={HistoryPayementScreen}
+                />
                 <Tab.Screen
                     name={Routes.NEW_USER}
                     component={NewPayementScreen}
                 />
-
                 <Tab.Screen
                     name={Routes.PROFILE_USER}
                     component={ProfileScreen}

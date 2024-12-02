@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useState } from "react";
 import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
 
 //componens
@@ -74,6 +74,11 @@ const ClientsCard = (datas: datasVerticalCard) => {
         setCounterDatas(datas);
     };
 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const handleChangeStateCounterFecthingSuccess = (datas: any) => {
+        console.log(datas);
+    };
+
     //Hooks Query
     const useFetchingMutation = useMutate();
     const useFeching = useCustomQuery({
@@ -94,7 +99,7 @@ const ClientsCard = (datas: datasVerticalCard) => {
             EndPoint: `${Api.CHANGE_COUNTER_STATE}`,
             dataToSending: { idUser: datas.UserDatas._id, isActive: true },
             handleError: handleFecthingError,
-            handleSuccess: handleFecthingSuccess,
+            handleSuccess: handleChangeStateCounterFecthingSuccess,
         });
     };
 
@@ -109,7 +114,7 @@ const ClientsCard = (datas: datasVerticalCard) => {
             EndPoint: `${Api.CHANGE_COUNTER_STATE}`,
             dataToSending: { idUser: datas.UserDatas._id, isActive: false },
             handleError: handleFecthingError,
-            handleSuccess: handleFecthingSuccess,
+            handleSuccess: handleChangeStateCounterFecthingSuccess,
         });
     };
 
@@ -119,7 +124,7 @@ const ClientsCard = (datas: datasVerticalCard) => {
             const idSetintreval = setInterval(() => {
                 console.log("sending Request");
                 useFeching.refetch();
-            }, 3000);
+            }, 2600);
 
             return () => {
                 console.log("Quit component and delete idSetintreval...");
@@ -128,10 +133,6 @@ const ClientsCard = (datas: datasVerticalCard) => {
             };
         }, [])
     );
-
-    useEffect(() => {
-        console.log(CounterDatas.isActive);
-    }, [CounterDatas]);
 
     return (
         <View
@@ -244,8 +245,8 @@ const ClientsCard = (datas: datasVerticalCard) => {
                         ]}
                     >
                         {CounterDatas.counterValue
-                            ? `${CounterDatas.counterValue} m3/h`
-                            : "-- m3/h"}
+                            ? `${Math.trunc(CounterDatas.counterValue * 100000) / 100} Litre(s)`
+                            : "-- Litre"}
                     </Text>
                 </View>
             </View>
@@ -267,7 +268,7 @@ const ClientsCard = (datas: datasVerticalCard) => {
                         CounterDatas.counterValue <= 0
                     }
                     onPress={() =>
-                        CounterDatas.isActive == "true"
+                        CounterDatas.isActive
                             ? DesactiveCounter()
                             : ActiveCounter()
                     }
@@ -293,7 +294,7 @@ const ClientsCard = (datas: datasVerticalCard) => {
                     CounterDatas.counterValue <= 0 ? (
                         <>
                             <>
-                                {CounterDatas.isActive == "true" ? (
+                                {CounterDatas.isActive ? (
                                     <LockClosedIcon
                                         size={19}
                                         color={AppTheme.mainfade}
@@ -319,7 +320,7 @@ const ClientsCard = (datas: datasVerticalCard) => {
                                     },
                                 ]}
                             >
-                                {CounterDatas.isActive == "true"
+                                {CounterDatas.isActive
                                     ? "Bloquer"
                                     : "Debloquer"}
                             </Text>

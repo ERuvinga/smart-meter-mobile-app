@@ -70,7 +70,7 @@ const RemoveItemView = (datas: DeleteCardDatas) => {
             dataToSending: {},
             handleError: (error) => {
                 setLoading(false);
-                console.log(error);
+                console.log(error.response);
             },
             handleSuccess: succeFetching,
         });
@@ -138,7 +138,7 @@ const RemoveItemView = (datas: DeleteCardDatas) => {
                             <Image
                                 source={
                                     datas.userDatas.img
-                                        ? datas.userDatas.img
+                                        ? { uri: datas.userDatas.img }
                                         : DefaultImages.User
                                 }
                                 style={{
@@ -146,7 +146,7 @@ const RemoveItemView = (datas: DeleteCardDatas) => {
                                     height: "100%",
                                 }}
                                 resizeMode="cover"
-                                borderRadius={4}
+                                borderRadius={20}
                             />
                         </View>
 

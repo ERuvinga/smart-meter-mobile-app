@@ -1,9 +1,11 @@
 import React from "react";
 import { View, Text, StyleSheet, Image } from "react-native";
 
-//Hooks
+//Hooks and States
 import useColorTheme from "../../../../hooks/useTheme";
 import useCustomFont from "../../../../hooks/useCustomFont";
+import useDate from "../../../../hooks/useDate";
+import { DefaultPictures } from "../../../../State/Auth/User";
 
 //Constants
 const AppFont = useCustomFont();
@@ -12,6 +14,7 @@ const Notificationdatas = {
     name: "Smart meter App",
 };
 import { NotificationsType } from "../../../../Constants/Types";
+import { useRecoilValue } from "recoil";
 
 interface datasVerticalCard {
     NotificationDatas: NotificationsType;
@@ -19,6 +22,8 @@ interface datasVerticalCard {
 const NotificationCard = (datas: datasVerticalCard) => {
     //hooks
     const AppTheme = useColorTheme();
+    const UseDate = useDate(datas.NotificationDatas.createAt);
+    const DefaultImages = useRecoilValue(DefaultPictures);
 
     //handles
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -65,7 +70,6 @@ const NotificationCard = (datas: datasVerticalCard) => {
                     {
                         width: "100%",
                         flexDirection: "row",
-                        alignItems: "center",
                         columnGap: 5,
                     },
                 ]}
@@ -77,7 +81,16 @@ const NotificationCard = (datas: datasVerticalCard) => {
                     }}
                 >
                     <Image
-                        source={Notificationdatas.cover}
+                        source={
+                            datas.NotificationDatas.Dealer[0]
+                                ? datas.NotificationDatas.Dealer[0].cover
+                                    ? {
+                                          uri: datas.NotificationDatas.Dealer[0]
+                                              .cover,
+                                      }
+                                    : DefaultImages.User
+                                : Notificationdatas.cover
+                        }
                         style={{
                             borderWidth: 0,
                             borderColor: AppTheme.main,
@@ -88,29 +101,62 @@ const NotificationCard = (datas: datasVerticalCard) => {
                     />
                 </View>
 
-                <View style={[{ justifyContent: "center" }]}>
-                    <Text
-                        numberOfLines={1}
-                        style={[
-                            {
-                                color: AppTheme.MainTextCards,
-                                textAlignVertical: "bottom",
-                                fontSize: 14,
-                                fontWeight: "bold",
-                            },
-                        ]}
+                <View
+                    style={[
+                        {
+                            flex: 1,
+                            justifyContent: "center",
+                            rowGap: 4,
+                        },
+                    ]}
+                >
+                    <View
+                        style={{
+                            flexDirection: "row",
+                            columnGap: 10,
+                            alignItems: "center",
+                            justifyContent: "space-between",
+                        }}
                     >
-                        {`${Notificationdatas.name}`}
-                    </Text>
+                        <Text
+                            numberOfLines={1}
+                            style={[
+                                {
+                                    color: AppTheme.MainTextCards,
+                                    textAlignVertical: "bottom",
+                                    fontSize: 14,
+                                    fontWeight: "bold",
+                                    width: "auto",
+                                },
+                            ]}
+                        >
+                            {datas.NotificationDatas.Dealer[0]
+                                ? `${datas.NotificationDatas.Dealer[0].fname} ${datas.NotificationDatas.Dealer[0].lname}`
+                                : `${Notificationdatas.name}`}
+                        </Text>
+                        <Text
+                            numberOfLines={1}
+                            style={[
+                                {
+                                    fontFamily: AppFont.Regular,
+                                    color: AppTheme.text,
+                                    textAlign: "right",
+                                    textAlignVertical: "bottom",
+                                    fontSize: 11,
+                                },
+                            ]}
+                        >
+                            {UseDate.returnAdaptativeValue()}
+                        </Text>
+                    </View>
+
                     <Text
-                        numberOfLines={1}
+                        numberOfLines={3}
                         style={[
                             {
-                                flex: 1,
                                 fontFamily: AppFont.Regular,
                                 color: AppTheme.icon,
                                 textAlignVertical: "top",
-                                width: "100%",
                                 fontSize: 12,
                             },
                         ]}
