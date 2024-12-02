@@ -9,8 +9,8 @@ export const AgreeConditionState = atom({
 export const API = atom({
     key: "apiDatas",
     default: {
-        LAN_LINK: "https://cherubin-restefull-api.onrender.com",
-        LINK: "http://192.168.0.220:4002",
+        LINK: "https://cherubin-restefull-api.onrender.com",
+        LAN_LINK: "http://192.168.0.220:4002",
         SIGN_IN: "/AppUsers/SignIn",
 
         REGISTER_VERIFI_CODE: "AppUsers/ActiveAccount/verifyCode",
@@ -23,6 +23,7 @@ export const API = atom({
         NEW_APPART: "/Users/NewAppart",
         NEW_RECHARGE: "/Users/NewPayement",
         GET_NOTIFICATION: "/Users/Notifications",
+        GET_HISTORY: "/Users/HistoryPayement",
 
         //aPLLICATION USER
         GET_OTP: "/AppUsers/ActiveAccount/getCode",

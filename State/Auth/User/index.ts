@@ -2,6 +2,7 @@
 import { atom } from "recoil";
 import {
     FILTERACCOUNTS,
+    HistoryPayementType,
     MobileUserDatas,
     NotificationsType,
 } from "../../../Constants/Types";
@@ -30,4 +31,9 @@ export const ClientUsers = atom({
 export const NotificationsDatas = atom({
     key: "NotificationsDatas",
     default: [] as NotificationsType[],
+});
+
+export const HistoriesDatas = atom({
+    key: "HistoriesDatas",
+    default: [] as HistoryPayementType[],
 });

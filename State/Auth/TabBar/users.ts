@@ -92,6 +92,12 @@ export const DealerNavBarState = atom({
             BadgeText: false,
             badgeValue: 0,
         },
+        {
+            Icon: IconesValues.PLUS,
+            label: "Recharge",
+            BadgeText: false,
+            badgeValue: 0,
+        },
 
         {
             Icon: IconesValues.PROFILE,
