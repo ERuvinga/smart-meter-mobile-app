@@ -26,9 +26,14 @@ import SignInUpStyle from "../../../style/screens/SignIUpStyle";
 
 //Constantes
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
+import { RootStackParamList, Routes } from "../../../hooks/useNavigation";
 const AppFont = useCustomFont();
 
-const NewUserScreen = () => {
+//Types of navigation  props
+type navigationProps = NativeStackScreenProps<RootStackParamList>;
+
+const NewUserScreen = ({ navigation }: navigationProps) => {
     //states
     const [ErroFieldState, setErroFieldState] = useState({
         idCompteur: false,
@@ -57,7 +62,7 @@ const NewUserScreen = () => {
     //Constants
     const idErrorMsg = "Valeur saisie incorecte";
     const ErrorMsg = "Valeur saisie incorecte ou insuffisante";
-    const ConvertValue = 1000; // 1000fc => 1m3
+    const ConvertValue = 100000; // 1000fc => 1m3
 
     //handle manage response after request to Api
     const ResetAllState = () => {
@@ -101,6 +106,7 @@ const NewUserScreen = () => {
 
         const toNumber = parseInt(valueChanged);
         console.log(toNumber);
+        console.log(toNumber / ConvertValue);
         setNewpayementValues((lastValue) => ({
             ...lastValue,
             payedValue: toNumber,
@@ -134,6 +140,7 @@ const NewUserScreen = () => {
 
         ResetAllState(); // Reset All States
         // back to Home page
+        navigation.navigate(Routes.HOME_AUTH);
     };
 
     // send Data function
@@ -315,7 +322,7 @@ const NewUserScreen = () => {
                     <SingInUpBtn
                         value="Payer"
                         handleFunction={sendDatas}
-                        isLoading={false}
+                        isLoading={useFetchingMutation.isLoading}
                         disabled={
                             NewpayementValues.idCounter == 0 ||
                             NewpayementValues.payedValue == 0 ||

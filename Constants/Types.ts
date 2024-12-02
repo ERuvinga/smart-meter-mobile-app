@@ -20,6 +20,20 @@ export interface NotificationsType {
     message: string;
     userId: string;
     idCounter: number;
+    Dealer: MobileUserDatas[];
+    createAt: string;
+}
+
+export interface HistoryPayementType {
+    _id: string;
+    clientId: string;
+    AdminId: string;
+    DealerId: string;
+    createAt: string;
+    idCounter: number;
+    valuePayed: number;
+    client: MobileUserDatas[];
+    Admin: MobileUserDatas[];
 }
 
 //1. Users

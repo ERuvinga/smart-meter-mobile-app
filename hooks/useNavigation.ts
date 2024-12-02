@@ -15,6 +15,7 @@ export enum Routes {
     //AUTH
     HOME_AUTH = "Auth_Home",
     NEW_USER = "NEW_USER",
+    NEW_PAYEMENT = "NEW_PAYEMENT",
     NOTIFICATION = "Notification",
     PROFILE_USER = "PROFILE_USER",
 
@@ -41,6 +42,7 @@ export type RootStackParamList = {
     //NAVIGATORS
     [Routes.START]: undefined;
     [Routes.ADMIN_NAVIGATOR]: undefined;
+    [Routes.NEW_PAYEMENT]: undefined;
     [Routes.MAIN_NAVIGATORE]: undefined;
 };
 
