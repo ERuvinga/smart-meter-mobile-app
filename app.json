@@ -2,7 +2,7 @@
     "expo": {
         "extra": {
             "eas": {
-                "projectId": "ca4034d4-9f29-4b8d-9d56-a2350abd41e3"
+                "projectId": "ebd326c7-8978-4cc3-90cc-182019f6edf1"
             }
         },
         "splash": {
@@ -17,25 +17,8 @@
                 "foregroundImage": "./assets/adaptive-icon.png",
                 "backgroundColor": "#ffffff"
             },
-            "plugins": [
-                [
-                    "expo-notifications",
-                    {
-                        "icon": "./assets/notif.png"
-                    }
-                ],
-                [
-                    "expo-build-properties",
-                    {
-                        "android": {
-                            "usesCleartextTraffic": true
-                        }
-                    }
-                ],
-
-                "expo-secure-store"
-            ],
-            "package": "com.eliruvinga.smartmeterapp"
-        }
+            "package": "com.eliruvinga.smartmeter"
+        },
+        "owner": "eliruvinga"
     }
 }
